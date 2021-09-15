@@ -1,0 +1,37 @@
+.header {
+    background: #202020;
+    height: 74px;
+    display: flex;
+}
+
+.header__logo {
+    background: #EC1D24;
+    color: black;
+    width: 271px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
+    line-height: 74px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 60px;
+}
+
+.header__logo > span {
+    color: white;
+    font-size: 37px;
+}
+
+.header__navbar {
+    font-size: 22px;
+    line-height: 74px;
+    margin-left: 60px;
+}
+
+.header__button {
+    color: #FFFFFF;
+    margin-right: 60px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
