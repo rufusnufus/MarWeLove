@@ -1,0 +1,6 @@
+.cards-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  row-gap: 50px;
+}
