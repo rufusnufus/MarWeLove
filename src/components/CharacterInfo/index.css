@@ -1,0 +1,30 @@
+.characterinfo {
+  display: flex;
+  color: white;
+  margin-bottom: 130px;
+}
+
+.characterinfo__name {
+  margin-top: 162px;
+  margin-left: 236px;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 74px;
+}
+
+.characterinfo__description {
+  width: 474px;
+  margin-left: 266px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 74px;
+}
+
+.characterinfo__image {
+  width: 463px;
+  height: 463px;
+  background-size: cover;
+  margin-left: 100px;
+  margin-top: 154px;
+}
