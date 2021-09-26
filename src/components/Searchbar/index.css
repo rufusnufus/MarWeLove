@@ -1,25 +1,26 @@
 .searchbar {
-    width: 705px;
-    height: 61px;
-    background: white;
-    border-radius: 30px;
-    display: flex;
-    margin: 150px auto 100px;
+  width: 705px;
+  height: 61px;
+  background: white;
+  border-radius: 30px;
+  display: flex;
+  margin: 150px auto 100px;
 }
 
 .searchbar__logo {
-    height: 48px;
-    margin: auto 0px auto 7px;
+  height: 48px;
+  margin: auto 0px auto 7px;
 }
 
 .searchbar__search {
-    font-size: 22px;
-    width: 100%;
-    cursor: text;
-    border-radius: 0 30px 30px 0;
-    border: none;
+  font-size: 22px;
+  width: 100%;
+  cursor: text;
+  border-radius: 0 30px 30px 0;
+  border: none;
 }
 
-textarea:focus, input:focus{
-    outline: none;
+textarea:focus,
+input:focus {
+  outline: none;
 }
