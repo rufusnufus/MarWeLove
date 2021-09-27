@@ -1,35 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './components/Card'
 
 import './index.css'
 
-function CardsGallery(type) {
+const axios = require('axios')
+
+function CardsGallery({ type }) {
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    axios.get(`http://localhost:8000/${type}`).then((response) => {
+      setData(response.data.data.results)
+    })
+  }, [])
+
   return (
     <div className="cards-gallery">
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
-      <Card data={{ imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg', caption: '3D-Man' }} />
+      {data.length &&
+        data.map((item) => {
+          return <Card key={item.id} data={item} />
+        })}
     </div>
   )
 }

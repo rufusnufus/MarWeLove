@@ -21,15 +21,6 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-      {/* 
-        space for our future components & routes:
-        header
-        dynamic-content (router)
-        / -> Characters
-        /characters -> 
-        /... -> ...
-        footer 
-      */}
     </div>
   )
 }

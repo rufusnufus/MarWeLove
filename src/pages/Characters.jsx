@@ -6,7 +6,7 @@ function Characters() {
   return (
     <>
       <Searchbar />
-      <CardsGallery />
+      <CardsGallery type="characters" />
     </>
   )
 }
