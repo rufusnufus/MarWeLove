@@ -1,21 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Searchbar from '../components/Searchbar'
-import CharacterInfo from '../components/CharacterInfo'
 import CardsGallery from '../components/CardsGallery'
+import Loading from '../components/Loading'
+
+const axios = require('axios')
 
 function Comics() {
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/comics`)
+      .then((response) => {
+        setData(response.data.data.results)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }, [])
+
   return (
     <>
-      {/* <Searchbar /> */}
-      <CharacterInfo
-        data={{
-          imageUrl: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg',
-          caption: '3D-Man',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu neque interdum, luctus nisl id, iaculis lacus.'
-        }}
-      />
-      <CardsGallery />
+      <Searchbar />
+      <Loading loading={loading}>
+        <CardsGallery type="comics" data={data} />
+      </Loading>
     </>
   )
 }

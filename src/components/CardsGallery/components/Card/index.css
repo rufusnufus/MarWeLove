@@ -4,6 +4,11 @@
   background-color: white;
   overflow: hidden;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  scale: 1.1;
 }
 
 .card__image {
@@ -14,4 +19,5 @@
 .card__caption {
   line-height: 50px;
   text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
