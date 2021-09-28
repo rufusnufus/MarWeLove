@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react'
 import Searchbar from '../components/Searchbar'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
-
-const axios = require('axios')
+import apiService from '../services/api.service'
 
 function Comics() {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/comics`)
-      .then((response) => {
-        setData(response.data.data.results)
+    apiService
+      .getComics()
+      .then((results) => {
+        setData(results)
       })
       .finally(() => {
         setLoading(false)

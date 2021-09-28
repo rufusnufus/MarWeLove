@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom'
 import CharacterInfo from '../components/CharacterInfo'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
-
-const axios = require('axios')
+import apiService from '../services/api.service'
 
 function Character() {
   const { id } = useParams()
@@ -12,10 +11,10 @@ function Character() {
   const [data, setData] = useState({})
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/characters/${id}`)
-      .then((response) => {
-        setData(response.data)
+    apiService
+      .getCharacter(id)
+      .then((results) => {
+        setData(results)
       })
       .finally(() => {
         setLoading(false)
