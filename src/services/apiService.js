@@ -10,7 +10,7 @@ class ApiService {
   }
 
   async getCharacter(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/characters/${id}`)
+    const response = await axios.get(`${this.API_ENDPOINT}/character/${id}`)
 
     return response.data
   }
@@ -22,7 +22,7 @@ class ApiService {
   }
 
   async getComic(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/comics/${id}`)
+    const response = await axios.get(`${this.API_ENDPOINT}/comic/${id}`)
 
     return response.data
   }
