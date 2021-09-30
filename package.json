@@ -5,7 +5,8 @@
   "main": ".eslintrc.js",
   "scripts": {
     "start": "webpack serve",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": [
