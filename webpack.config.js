@@ -25,7 +25,7 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   resolve: {
-    extensions: ['.js', '.jsx'] // TODO add JSX extension to allow webpack make imports of such files (without specifying extension in import statement)
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
         test: /\.js(x)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader' /* TODO set correct loader to make code transpilation from jsx */,
+          loader: 'babel-loader',
           options: {}
         }
       },
@@ -63,7 +63,7 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'FEWD HW2',
-      template: '/public/index.html' // TODO create html template file and set correct path to html template file
+      template: '/public/index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
