@@ -17,6 +17,12 @@
 
 This is web app written using [React](https://reactjs.org) and [MarvelAPI](https://developer.marvel.com) showing marvel characters and comics.
 
+In addition, here you can find our [Feature List](https://docs.google.com/document/d/1AQ5OILzj2gMUXtgjeuNkqoA9NvUjoIOZ0glIdbwxLoE/edit?usp=sharing) and [Concept Design](https://www.figma.com/file/8kroWzsOc9W04FsKwadORK/Untitled?node-id=0%3A1).
+
+## Prerequisites
+
+You need to run our server: [MarweLove-server](https://github.com/KamilRizatdinov/marwelove-server).
+
 ## Available Scripts
 
 In the project directory, you can run:
