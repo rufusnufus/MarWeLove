@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'jest'],
   rules: {
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
