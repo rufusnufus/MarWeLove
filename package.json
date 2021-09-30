@@ -4,7 +4,8 @@
   "private": true,
   "main": ".eslintrc.js",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +44,9 @@
     "eslint-webpack-plugin": "^3.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
     "webpack": "^5.53.0",
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.2.1"
@@ -55,5 +59,8 @@
     "react-hook-form": "^7.15.4",
     "react-router-dom": "^5.3.0",
     "styled-components": "^5.3.1"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }
