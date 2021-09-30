@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import CharacterInfo from '../components/CharacterInfo'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
-import apiService from '../services/api.service'
+import apiService from '../services/apiService'
 
 function Character() {
   const { id } = useParams()

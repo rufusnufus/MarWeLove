@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Searchbar from '../components/Searchbar'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
-import apiService from '../services/api.service'
+import apiService from '../services/apiService'
 
 function Comics() {
   const [data, setData] = useState({})

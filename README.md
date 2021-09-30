@@ -7,14 +7,20 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/rufusnufus/marwelove?style=for-the-badge)](https://github.com/rufusnufus/marwelove/graphs/contributors)
 [![GitHub license](https://img.shields.io/badge/license-mit-orange.svg?style=for-the-badge)](https://github.com/rufusnufus/marwelove/blob/master/LICENSE)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=alert_status)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=bugs)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=rufusnufus_marwelove&metric=code_smells)](https://sonarcloud.io/dashboard?id=rufusnufus_marwelove)
 <br>
 
 ## Overview
+
 This is web app written using [React](https://reactjs.org) and [MarvelAPI](https://developer.marvel.com) showing marvel characters and comics.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
 ```bash
 npm start
 ```
@@ -26,6 +32,8 @@ The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 ## Contacts
+
 If you have any questions or ideas, write us in [Telegram](https://telegram.org):
-* [@MatInd0](https://t.me/MatInd0/)
-* [@rufusnufus](https://t.me/rufusnufus/)
+
+- [@MatInd0](https://t.me/MatInd0/)
+- [@rufusnufus](https://t.me/rufusnufus/)
