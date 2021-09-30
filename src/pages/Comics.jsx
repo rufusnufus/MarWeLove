@@ -19,9 +19,21 @@ function Comics() {
       })
   }, [])
 
+  const onSubmit = (query) => {
+    setLoading(true)
+    apiService
+      .getComics(query)
+      .then((results) => {
+        setData(results)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
+
   return (
     <>
-      <Searchbar />
+      <Searchbar onSubmit={onSubmit} />
       <Loading loading={loading}>
         <CardsGallery type="comics" data={data} />
       </Loading>

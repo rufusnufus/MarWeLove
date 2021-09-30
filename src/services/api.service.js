@@ -3,8 +3,8 @@ import axios from 'axios'
 class ApiService {
   API_ENDPOINT = 'http://localhost:8000'
 
-  async getCharacters() {
-    const response = await axios.get(`${this.API_ENDPOINT}/characters/`)
+  async getCharacters(query) {
+    const response = await axios.get(`${this.API_ENDPOINT}/characters/${query || ''}`)
 
     return response.data.data.results
   }
@@ -15,8 +15,8 @@ class ApiService {
     return response.data
   }
 
-  async getComics() {
-    const response = await axios.get(`${this.API_ENDPOINT}/comics/`)
+  async getComics(query) {
+    const response = await axios.get(`${this.API_ENDPOINT}/comics/${query || ''}`)
 
     return response.data.data.results
   }

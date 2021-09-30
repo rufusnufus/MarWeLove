@@ -19,9 +19,21 @@ function Characters() {
       })
   }, [])
 
+  const onSubmit = (query) => {
+    setLoading(true)
+    apiService
+      .getCharacters(query)
+      .then((results) => {
+        setData(results)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
+  }
+
   return (
     <>
-      <Searchbar />
+      <Searchbar onSubmit={onSubmit} />
       <Loading loading={loading}>
         <CardsGallery type="characters" data={data} />
       </Loading>

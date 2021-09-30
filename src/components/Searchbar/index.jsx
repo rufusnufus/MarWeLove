@@ -2,11 +2,18 @@ import React from 'react'
 
 import './index.css'
 
-function Searchbar() {
+function Searchbar({ onSubmit }) {
+  const inputKeyUp = (e) => {
+    e.which = e.which || e.keyCode
+    if (e.which === 13) {
+      onSubmit(e.target.value)
+    }
+  }
+
   return (
     <div className="searchbar">
       <img src="images/search.png" alt="" className="searchbar__logo" />
-      <input type="text" placeholder="Search" className="searchbar__search" />
+      <input type="text" placeholder="Search" className="searchbar__search" onKeyUp={inputKeyUp} />
     </div>
   )
 }
