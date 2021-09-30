@@ -3,26 +3,26 @@ import axios from 'axios'
 class ApiService {
   API_ENDPOINT = 'http://localhost:8000'
 
-  async getCharacters(query) {
-    const response = await axios.get(`${this.API_ENDPOINT}/characters/${query || ''}`)
+  async getCharacters(queryParams) {
+    const response = await axios.get(`${this.API_ENDPOINT}/characters`, { params: queryParams })
 
     return response.data.data.results
   }
 
   async getCharacter(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/character/${id}`)
+    const response = await axios.get(`${this.API_ENDPOINT}/characters/${id}`)
 
     return response.data
   }
 
-  async getComics(query) {
-    const response = await axios.get(`${this.API_ENDPOINT}/comics/${query || ''}`)
+  async getComics(queryParams) {
+    const response = await axios.get(`${this.API_ENDPOINT}/comics`, { params: queryParams })
 
     return response.data.data.results
   }
 
   async getComic(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/comic/${id}`)
+    const response = await axios.get(`${this.API_ENDPOINT}/comics/${id}`)
 
     return response.data
   }
