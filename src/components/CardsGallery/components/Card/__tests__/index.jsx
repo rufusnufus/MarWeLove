@@ -3,7 +3,6 @@
  */
 
 import React from 'react'
-import 'jest-styled-components'
 import { MemoryRouter } from 'react-router-dom'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import Card from '../index'
@@ -30,7 +29,7 @@ jest.mock('react-router-dom', () => ({
 }))
 
 describe('Card', () => {
-  describe('Characters', () => {
+  describe('Character', () => {
     it('Render', () => {
       const { queryByText } = render(<Card type="characters" data={mockData} />)
 

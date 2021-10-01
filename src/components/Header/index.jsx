@@ -5,8 +5,8 @@ import './index.css'
 
 function Header() {
   return (
-    <div className="header">
-      <NavLink className="header__logo" to="/">
+    <header className="header">
+      <NavLink data-testid="header__logo" className="header__logo" to="/">
         Mar<span>we</span>Love
       </NavLink>
       <div className="header__navbar">
@@ -17,7 +17,7 @@ function Header() {
           comics
         </NavLink>
       </div>
-    </div>
+    </header>
   )
 }
 
