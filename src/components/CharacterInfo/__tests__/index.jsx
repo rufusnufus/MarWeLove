@@ -13,8 +13,8 @@ const mockData = {
   name: 'Abyss (Age of Apocalypse)',
   description: 'AIM is a terrorist organization bent on destroying the world.',
   thumbnail: {
-    path: 'http://i.annihil.us/u/prod/marvel/i/mg/6/20/52602f21f29ec',
-    extension: 'jpg'
+    path: '',
+    extension: ''
   }
 }
 

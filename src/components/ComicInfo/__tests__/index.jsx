@@ -14,8 +14,8 @@ const mockData = {
   title: 'Sentry, the (Trade Paperback)',
   description: 'A forgotten hero, he must unravel the conspiracy to erase his memory.',
   thumbnail: {
-    path: 'http://i.annihil.us/u/prod/marvel/i/mg/f/c0/4bc66d78f1bee',
-    extension: 'jpg'
+    path: '',
+    extension: ''
   }
 }
 

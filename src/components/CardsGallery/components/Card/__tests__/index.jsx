@@ -12,8 +12,8 @@ afterEach(cleanup)
 const mockData = {
   id: 1009148,
   thumbnail: {
-    path: 'http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7',
-    extension: 'jpg'
+    path: '',
+    extension: ''
   },
   name: 'character',
   title: 'comic'

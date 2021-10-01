@@ -12,8 +12,8 @@ const mockData = [
   {
     id: 1011334,
     thumbnail: {
-      path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784',
-      extension: 'jpg'
+      path: '',
+      extension: ''
     },
     name: '3-D Man',
     description: '',
@@ -22,8 +22,8 @@ const mockData = [
   {
     id: 1017100,
     thumbnail: {
-      path: 'http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16',
-      extension: 'jpg'
+      path: '',
+      extension: ''
     },
     name: 'A-Bomb (HAS)',
     description: "Rick Jones has been Hulk's best bud since day one",
