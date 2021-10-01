@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import useOnScreen from '../../hooks/useOnScreen'
 
-import './index.css'
-
 function Loader({ onChange }) {
   const ref = useRef()
   const isVisible = useOnScreen(ref)

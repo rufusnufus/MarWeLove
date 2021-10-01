@@ -30,11 +30,11 @@ function Comics() {
     return () => setIsSubscribed(false)
   }, [offset])
 
-  const onSubmit = (query) => {
-    setQuery(query)
+  const onSubmit = (q) => {
+    setQuery(q)
     setLoading(true)
     apiService
-      .getComics({ query })
+      .getComics({ query: q })
       .then((results) => {
         setLoaderVisible(results.length === 20)
         setData(results)

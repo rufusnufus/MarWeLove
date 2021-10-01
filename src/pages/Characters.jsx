@@ -29,11 +29,11 @@ function Characters() {
     return () => setIsSubscribed(false)
   }, [offset])
 
-  const onSubmit = (query) => {
-    setQuery(query)
+  const onSubmit = (q) => {
+    setQuery(q)
     setLoading(true)
     apiService
-      .getCharacters({ query })
+      .getCharacters({ query: q })
       .then((results) => {
         setLoaderVisible(results.length === 20)
         setData(results)
