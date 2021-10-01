@@ -12,6 +12,7 @@ function Comic() {
   const [data, setData] = useState({})
 
   useEffect(() => {
+    setIsSubscribed(true)
     apiService
       .getComic(id)
       .then((results) => {

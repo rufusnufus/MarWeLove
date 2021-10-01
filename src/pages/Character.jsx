@@ -12,6 +12,7 @@ function Character() {
   const [data, setData] = useState({})
 
   useEffect(() => {
+    setIsSubscribed(true)
     apiService
       .getCharacter(id)
       .then((results) => {

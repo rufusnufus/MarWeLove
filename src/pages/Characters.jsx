@@ -14,6 +14,7 @@ function Characters() {
   const [loaderVisible, setLoaderVisible] = useState(false)
 
   useEffect(() => {
+    setIsSubscribed(true)
     apiService
       .getCharacters({ query, offset })
       .then((results) => {
@@ -34,15 +35,12 @@ function Characters() {
     apiService
       .getCharacters({ query })
       .then((results) => {
-        if (isSubscribed) {
-          setLoaderVisible(results.length === 20)
-          setData(results)
-        }
+        setLoaderVisible(results.length === 20)
+        setData(results)
       })
       .finally(() => {
-        if (isSubscribed) setLoading(false)
+        setLoading(false)
       })
-    return () => setIsSubscribed(false)
   }
 
   return (

@@ -14,6 +14,7 @@ function Comics() {
   const [loaderVisible, setLoaderVisible] = useState(false)
 
   useEffect(() => {
+    setIsSubscribed(true)
     apiService
       .getComics({ query, offset })
       .then((results) => {
@@ -35,16 +36,12 @@ function Comics() {
     apiService
       .getComics({ query })
       .then((results) => {
-        if (isSubscribed) {
-          setLoaderVisible(results.length === 20)
-          setData(results)
-        }
+        setLoaderVisible(results.length === 20)
+        setData(results)
       })
       .finally(() => {
-        if (isSubscribed) setLoading(false)
+        setLoading(false)
       })
-
-    return () => setIsSubscribed(false)
   }
 
   return (
