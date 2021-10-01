@@ -7,6 +7,7 @@ import apiService from '../services/apiService'
 
 function Comic() {
   const { id } = useParams()
+  const [isSubscribed, setIsSubscribed] = useState(true)
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState({})
 
@@ -14,11 +15,12 @@ function Comic() {
     apiService
       .getComic(id)
       .then((results) => {
-        setData(results)
+        if (isSubscribed) setData(results)
       })
       .finally(() => {
-        setLoading(false)
+        if (isSubscribed) setLoading(false)
       })
+    return () => setIsSubscribed(false)
   }, [])
 
   return (

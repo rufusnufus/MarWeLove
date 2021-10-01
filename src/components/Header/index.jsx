@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './index.css'
 
-function Header() {
+function Header({ name }) {
   return (
     <header className="header">
       <NavLink data-testid="header__logo" className="header__logo" to="/">
@@ -17,6 +17,7 @@ function Header() {
           comics
         </NavLink>
       </div>
+      <span className="header__name">{name}</span>
     </header>
   )
 }

@@ -7,6 +7,7 @@ import apiService from '../services/apiService'
 
 function Characters() {
   const [data, setData] = useState([])
+  const [isSubscribed, setIsSubscribed] = useState(true)
   const [offset, setOffset] = useState(0)
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
@@ -16,12 +17,15 @@ function Characters() {
     apiService
       .getCharacters({ query, offset })
       .then((results) => {
-        setLoaderVisible(results.length === 20)
-        setData((state) => [...state, ...results])
+        if (isSubscribed) {
+          setLoaderVisible(results.length === 20)
+          setData((state) => [...state, ...results])
+        }
       })
       .finally(() => {
-        setLoading(false)
+        if (isSubscribed) setLoading(false)
       })
+    return () => setIsSubscribed(false)
   }, [offset])
 
   const onSubmit = (query) => {
@@ -30,12 +34,15 @@ function Characters() {
     apiService
       .getCharacters({ query })
       .then((results) => {
-        setLoaderVisible(results.length === 20)
-        setData(results)
+        if (isSubscribed) {
+          setLoaderVisible(results.length === 20)
+          setData(results)
+        }
       })
       .finally(() => {
-        setLoading(false)
+        if (isSubscribed) setLoading(false)
       })
+    return () => setIsSubscribed(false)
   }
 
   return (

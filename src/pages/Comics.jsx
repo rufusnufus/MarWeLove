@@ -8,6 +8,7 @@ import apiService from '../services/apiService'
 function Comics() {
   const [data, setData] = useState([])
   const [offset, setOffset] = useState(0)
+  const [isSubscribed, setIsSubscribed] = useState(true)
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [loaderVisible, setLoaderVisible] = useState(false)
@@ -16,12 +17,16 @@ function Comics() {
     apiService
       .getComics({ query, offset })
       .then((results) => {
-        setLoaderVisible(results.length === 20)
-        setData((state) => [...state, ...results])
+        if (isSubscribed) {
+          setLoaderVisible(results.length === 20)
+          setData((state) => [...state, ...results])
+        }
       })
       .finally(() => {
-        setLoading(false)
+        if (isSubscribed) setLoading(false)
       })
+
+    return () => setIsSubscribed(false)
   }, [offset])
 
   const onSubmit = (query) => {
@@ -30,12 +35,16 @@ function Comics() {
     apiService
       .getComics({ query })
       .then((results) => {
-        setLoaderVisible(results.length === 20)
-        setData(results)
+        if (isSubscribed) {
+          setLoaderVisible(results.length === 20)
+          setData(results)
+        }
       })
       .finally(() => {
-        setLoading(false)
+        if (isSubscribed) setLoading(false)
       })
+
+    return () => setIsSubscribed(false)
   }
 
   return (

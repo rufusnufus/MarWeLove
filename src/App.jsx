@@ -1,16 +1,32 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Modal from 'react-modal'
+import { useSelector } from 'react-redux'
 import Header from './components/Header'
+import NameForm from './components/NameForm'
 import Characters from './pages/Characters'
 import Character from './pages/Character'
 import Comics from './pages/Comics'
 import Comic from './pages/Comic'
 
+Modal.setAppElement('#root')
+
 function App() {
+  const name = useSelector((state) => state.user.name)
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        <Header name={name} />
+        <Modal
+          style={{
+            content: { background: 'transparent', border: 'none' },
+            overlay: { background: 'rgba(0, 0, 0, 0.75)' }
+          }}
+          isOpen={!name.length}
+        >
+          <NameForm />
+        </Modal>
         <Switch>
           <Route path="/characters/:id">
             <Character />
