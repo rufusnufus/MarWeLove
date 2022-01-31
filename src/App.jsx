@@ -27,23 +27,25 @@ function App() {
         >
           <NameForm />
         </Modal>
-        <Switch>
-          <Route path="/characters/:id">
-            <Character />
-          </Route>
-          <Route path="/characters">
-            <Characters />
-          </Route>
-          <Route path="/comics/:id">
-            <Comic />
-          </Route>
-          <Route path="/comics">
-            <Comics />
-          </Route>
-          <Route path="/" exact>
-            <Characters />
-          </Route>
-        </Switch>
+        {name.length && (
+          <Switch>
+            <Route path="/characters/:id">
+              <Character />
+            </Route>
+            <Route path="/characters">
+              <Characters />
+            </Route>
+            <Route path="/comics/:id">
+              <Comic />
+            </Route>
+            <Route path="/comics">
+              <Comics />
+            </Route>
+            <Route path="/" exact>
+              <Characters />
+            </Route>
+          </Switch>
+        )}
       </BrowserRouter>
     </div>
   )
