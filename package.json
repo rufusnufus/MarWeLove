@@ -6,7 +6,9 @@
   "scripts": {
     "start": "webpack serve",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "pretty": "prettier --write src/",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "eslintConfig": {
     "extends": [

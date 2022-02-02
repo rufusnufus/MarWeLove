@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Searchbar from '../components/Searchbar'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'

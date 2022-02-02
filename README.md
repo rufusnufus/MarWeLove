@@ -37,6 +37,18 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
 You will also see any lint errors in the console.
 
+```bash
+npm run pretty
+```
+
+Runs prettier over the source code
+
+```bash
+npm run lint
+```
+
+Lints your code
+
 ## Contacts
 
 If you have any questions or ideas, write us in [Telegram](https://telegram.org):

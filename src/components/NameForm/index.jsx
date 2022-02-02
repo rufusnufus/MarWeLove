@@ -1,22 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import { useDispatch } from 'react-redux'
-import { setName } from '../../store/slices/user'
+import { setName, setToken } from '../../store/slices/user'
 
 import './index.css'
+import apiService from '../../services/apiService'
 
 const NameForm = () => {
   const dispatch = useDispatch()
+  const [status, setStatus] = useState('')
 
   const formik = useFormik({
     initialValues: {
-      name: ''
+      name: '',
+      password: ''
     },
 
     onSubmit: (values) => {
-      dispatch(setName(values.name))
+      const { name, password } = values
+      apiService
+        .performLogin(name, password)
+        .then((results) => {
+          dispatch(setName(values.name))
+          dispatch(setToken(results))
+        })
+        .catch((results) => {
+          setStatus('ERROR')
+        })
     }
   })
+
+  function handleRegister(values) {
+    const { name, password } = values
+    apiService
+      .performRegister(name, password)
+      .then((results) => {
+        setStatus('OK')
+      })
+      .catch((results) => {
+        setStatus('ERROR')
+      })
+  }
 
   return (
     <form className="name-form" onSubmit={formik.handleSubmit}>
@@ -25,8 +49,20 @@ const NameForm = () => {
       </label>
 
       <input id="name" name="name" type="text" onChange={formik.handleChange} value={formik.values.name} />
+      <input
+        id="password"
+        name="password"
+        type="password"
+        onChange={formik.handleChange}
+        value={formik.values.password}
+      />
 
-      <button type="submit">Submit</button>
+      <button onClick={() => handleRegister(formik.values)} type="button">
+        Register
+      </button>
+      <button type="submit">Login</button>
+      {status === 'OK' && <text> Registration completed </text>}
+      {status === 'ERROR' && <text> Request failed </text>}
     </form>
   )
 }

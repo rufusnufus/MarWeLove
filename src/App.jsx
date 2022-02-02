@@ -13,6 +13,8 @@ Modal.setAppElement('#root')
 
 function App() {
   const name = useSelector((state) => state.user.name)
+  const token = useSelector((state) => state.user.token)
+  // TODO: DISABLE_AUTH=TRue
 
   return (
     <div className="App">
@@ -23,7 +25,7 @@ function App() {
             content: { background: 'transparent', border: 'none' },
             overlay: { background: 'rgba(0, 0, 0, 0.75)' }
           }}
-          isOpen={!name.length}
+          isOpen={!token.length}
         >
           <NameForm />
         </Modal>
