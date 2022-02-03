@@ -1,7 +1,13 @@
 import axios from 'axios'
-import { useSelector } from 'react-redux'
 
 // TODO: add token to every request to the server
+
+function getAuthorizationHeaders(token) {
+  console.log(`in getAuthorizationHeaders, token = ${token}`)
+  return {
+    Authorization: `Bearer ${token}`
+  }
+}
 
 class ApiService {
   API_ENDPOINT = 'http://localhost:8000'
@@ -26,31 +32,36 @@ class ApiService {
     return response.data.access_token
   }
 
-  async getCharacters(queryParams) {
+  async getCharacters(queryParams, token) {
     const response = await axios.get(`${this.API_ENDPOINT}/characters`, {
-      // headers: {
-      //  Bearer: token
-      // },
+      headers: getAuthorizationHeaders(token),
       params: queryParams
     })
 
     return response.data.data.results
   }
 
-  async getCharacter(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/characters/${id}`)
+  async getCharacter(id, token) {
+    const response = await axios.get(`${this.API_ENDPOINT}/characters/${id}`, {
+      headers: getAuthorizationHeaders(token)
+    })
 
     return response.data
   }
 
-  async getComics(queryParams) {
-    const response = await axios.get(`${this.API_ENDPOINT}/comics`, { params: queryParams })
+  async getComics(queryParams, token) {
+    const response = await axios.get(`${this.API_ENDPOINT}/comics`, {
+      params: queryParams,
+      headers: getAuthorizationHeaders(token)
+    })
 
     return response.data.data.results
   }
 
-  async getComic(id) {
-    const response = await axios.get(`${this.API_ENDPOINT}/comics/${id}`)
+  async getComic(id, token) {
+    const response = await axios.get(`${this.API_ENDPOINT}/comics/${id}`, {
+      headers: getAuthorizationHeaders(token)
+    })
 
     return response.data
   }

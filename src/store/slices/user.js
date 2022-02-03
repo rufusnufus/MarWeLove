@@ -1,11 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const DISABLE_AUTH = false
+
 export const userSlice = createSlice({
   name: 'counter',
-  initialState: {
-    name: '',
-    token: ''
-  },
+  initialState: !DISABLE_AUTH
+    ? {
+        name: '',
+        token: ''
+      }
+    : {
+        name: 'admin',
+        token: 'admin-token-0'
+      },
   reducers: {
     setName: (state, action) => {
       state.name = action.payload

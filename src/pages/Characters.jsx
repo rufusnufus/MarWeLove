@@ -13,11 +13,12 @@ function Characters() {
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [loaderVisible, setLoaderVisible] = useState(false)
+  const token = useSelector((state) => state.user.token)
 
   useEffect(() => {
     setIsSubscribed(true)
     apiService
-      .getCharacters({ query, offset })
+      .getCharacters({ query, offset }, token)
       .then((results) => {
         if (isSubscribed) {
           setLoaderVisible(results.length === 20)
@@ -28,13 +29,13 @@ function Characters() {
         if (isSubscribed) setLoading(false)
       })
     return () => setIsSubscribed(false)
-  }, [offset])
+  }, [offset, token])
 
   const onSubmit = (q) => {
     setQuery(q)
     setLoading(true)
     apiService
-      .getCharacters({ query: q })
+      .getCharacters({ query: q }, token)
       .then((results) => {
         setLoaderVisible(results.length === 20)
         setData(results)

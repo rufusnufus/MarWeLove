@@ -14,7 +14,7 @@ Modal.setAppElement('#root')
 function App() {
   const name = useSelector((state) => state.user.name)
   const token = useSelector((state) => state.user.token)
-  // TODO: DISABLE_AUTH=TRue
+  // TODO: DISABLE_AUTH=True
 
   return (
     <div className="App">
@@ -29,7 +29,7 @@ function App() {
         >
           <NameForm />
         </Modal>
-        {name.length && (
+        {token.length && (
           <Switch>
             <Route path="/characters/:id">
               <Character />

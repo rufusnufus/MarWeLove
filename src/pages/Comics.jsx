@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import Searchbar from '../components/Searchbar'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
@@ -12,11 +13,12 @@ function Comics() {
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [loaderVisible, setLoaderVisible] = useState(false)
+  const token = useSelector((state) => state.user.token)
 
   useEffect(() => {
     setIsSubscribed(true)
     apiService
-      .getComics({ query, offset })
+      .getComics({ query, offset }, token)
       .then((results) => {
         if (isSubscribed) {
           setLoaderVisible(results.length === 20)
@@ -28,13 +30,13 @@ function Comics() {
       })
 
     return () => setIsSubscribed(false)
-  }, [offset])
+  }, [offset, token])
 
   const onSubmit = (q) => {
     setQuery(q)
     setLoading(true)
     apiService
-      .getComics({ query: q })
+      .getComics({ query: q }, token)
       .then((results) => {
         setLoaderVisible(results.length === 20)
         setData(results)

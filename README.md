@@ -49,6 +49,10 @@ npm run lint
 
 Lints your code
 
+## How to disable auth?
+
+Set variable DISABLE_AUTH to True in [src/store/slices/user.js](src/store/slices/user.js)
+
 ## Contacts
 
 If you have any questions or ideas, write us in [Telegram](https://telegram.org):
