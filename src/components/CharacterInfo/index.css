@@ -31,3 +31,19 @@
   height: 463px;
   background-size: cover;
 }
+
+/* .bookmark {
+  height: 32px;
+  text-align: center;
+  position: center;
+  padding: auto;
+}
+
+.image__pos {
+  float: right;
+} */
+
+.bookmark__container {
+  display: flex;
+  align-items: center;
+}
