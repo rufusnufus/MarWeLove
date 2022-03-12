@@ -14,11 +14,12 @@ function Bookmarks() {
   const [loading, setLoading] = useState(true)
   const [loaderVisible, setLoaderVisible] = useState(false)
   const token = useSelector((state) => state.user.token)
+  const onlyBookmarked = true
 
   useEffect(() => {
     setIsSubscribed(true)
     apiService
-      .getCharacters({ query, offset }, token)
+      .getCharacters({ query, offset, onlyBookmarked }, token)
       .then((results) => {
         if (isSubscribed) {
           setLoaderVisible(results.length === 20)
@@ -29,13 +30,13 @@ function Bookmarks() {
         if (isSubscribed) setLoading(false)
       })
     return () => setIsSubscribed(false)
-  }, [offset, token])
+  }, [offset, token, onlyBookmarked])
 
   const onSubmit = (q) => {
     setQuery(q)
     setLoading(true)
     apiService
-      .getCharacters({ query: q }, token)
+      .getCharacters({ query: q, only_bookmarked: true }, token)
       .then((results) => {
         setLoaderVisible(results.length === 20)
         setData(results)

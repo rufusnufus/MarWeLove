@@ -44,7 +44,7 @@ function App() {
             <Route path="/comics">
               <Comics />
             </Route>
-            <Route path="/bookarks">
+            <Route path="/bookmarks">
               <Bookmarks />
             </Route>
             <Route path="/" exact>
