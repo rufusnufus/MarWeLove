@@ -8,7 +8,9 @@
     "prepare": "husky install",
     "test": "jest",
     "pretty": "prettier --write src/",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "pretty:check": "prettier --check src/",
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint:check": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "eslintConfig": {
     "extends": [
