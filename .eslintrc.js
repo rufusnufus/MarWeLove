@@ -18,6 +18,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react', 'prettier', 'jest'],
+  ignorePatterns: ['.github/**'],
   rules: {
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
