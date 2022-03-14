@@ -24,7 +24,7 @@ const NameForm = () => {
           dispatch(setName(values.name))
           dispatch(setToken(results))
         })
-        .catch((results) => {
+        .catch(() => {
           setStatus('ERROR')
         })
     }
@@ -34,10 +34,10 @@ const NameForm = () => {
     const { name, password } = values
     apiService
       .performRegister(name, password)
-      .then((results) => {
+      .then(() => {
         setStatus('OK')
       })
-      .catch((results) => {
+      .catch(() => {
         setStatus('ERROR')
       })
   }

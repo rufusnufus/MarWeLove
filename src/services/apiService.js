@@ -3,7 +3,6 @@ import axios from 'axios'
 // TODO: add token to every request to the server
 
 function getAuthorizationHeaders(token) {
-  console.log(`in getAuthorizationHeaders, token = ${token}`)
   return {
     Authorization: `Bearer ${token}`
   }
