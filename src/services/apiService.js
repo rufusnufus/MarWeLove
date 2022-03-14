@@ -65,6 +65,10 @@ class ApiService {
 
     return response.data
   }
+
+  async toggleBookmark(id, token) {
+    await axios.post(`${this.API_ENDPOINT}/bookmark/characters/${id}`, {}, { headers: getAuthorizationHeaders(token) })
+  }
 }
 
 const apiService = new ApiService()
