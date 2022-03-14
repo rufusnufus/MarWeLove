@@ -12,17 +12,14 @@ function Card({ data, type }) {
 
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-    <div className="card">
+    <div className="card" onClick={handleClick}>
+      <Bookmark id={data.id} bookmark={data.bookmark} />
       <div
         role="navigation"
-        onClick={handleClick}
         className="card__image"
         style={{ backgroundImage: `url(${data.thumbnail?.path}.${data.thumbnail?.extension})` }}
       />
-      <div className="bookmark__container">
-        <div className="card__caption">{type === 'characters' ? data.name : data.title}</div>
-        <Bookmark id={data.id} bookmark={data.bookmark} />
-      </div>
+      <div className="card__caption">{type === 'characters' ? data.name : data.title}</div>
     </div>
   )
 }

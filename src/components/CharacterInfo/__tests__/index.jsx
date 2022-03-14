@@ -4,7 +4,9 @@
 
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
+import { Provider } from 'react-redux'
 import CharacterInfo from '../index'
+import store from '../../../store'
 
 afterEach(cleanup)
 
@@ -20,13 +22,21 @@ const mockData = {
 
 describe('CharacterInfo', () => {
   it('Character Name', () => {
-    const { queryByText } = render(<CharacterInfo data={mockData} />)
+    const { queryByText } = render(
+      <Provider store={store}>
+        <CharacterInfo data={mockData} />
+      </Provider>
+    )
 
     expect(queryByText('Abyss (Age of Apocalypse)')).toBeTruthy()
   })
 
   it('Character Description', () => {
-    const { queryByText } = render(<CharacterInfo data={mockData} />)
+    const { queryByText } = render(
+      <Provider store={store}>
+        <CharacterInfo data={mockData} />
+      </Provider>
+    )
 
     expect(queryByText('AIM is a terrorist organization bent on destroying the world.')).toBeTruthy()
   })

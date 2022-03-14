@@ -4,7 +4,9 @@
 
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
+import { Provider } from 'react-redux'
 import CardsGallery from '../index'
+import store from '../../../store'
 
 afterEach(cleanup)
 
@@ -34,7 +36,11 @@ const mockData = [
 describe('CardsGallery', () => {
   describe('Characters', () => {
     it('Render', () => {
-      const { queryByText } = render(<CardsGallery type="characters" data={mockData} />)
+      const { queryByText } = render(
+        <Provider store={store}>
+          <CardsGallery type="characters" data={mockData} />
+        </Provider>
+      )
 
       expect(queryByText('3-D Man')).toBeTruthy()
       expect(queryByText('A-Bomb (HAS)')).toBeTruthy()
@@ -43,7 +49,11 @@ describe('CardsGallery', () => {
 
   describe('Comics', () => {
     it('Render', () => {
-      const { queryByText } = render(<CardsGallery type="comics" data={mockData} />)
+      const { queryByText } = render(
+        <Provider store={store}>
+          <CardsGallery type="comics" data={mockData} />
+        </Provider>
+      )
 
       expect(queryByText('Marvel Premiere (1972) #36')).toBeTruthy()
       expect(queryByText('Hulk (2008) #53')).toBeTruthy()

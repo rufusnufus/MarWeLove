@@ -3,9 +3,11 @@
  */
 
 import React from 'react'
+import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router-dom'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import Card from '../index'
+import store from '../../../../../store'
 
 afterEach(cleanup)
 
@@ -31,16 +33,22 @@ jest.mock('react-router-dom', () => ({
 describe('Card', () => {
   describe('Character', () => {
     it('Render', () => {
-      const { queryByText } = render(<Card type="characters" data={mockData} />)
+      const { queryByText } = render(
+        <Provider store={store}>
+          <Card type="characters" data={mockData} />
+        </Provider>
+      )
 
       expect(queryByText('character')).toBeTruthy()
     })
 
     it('After click route path changes', () => {
       const { queryByText } = render(
-        <MemoryRouter>
-          <Card type="characters" data={mockData} />
-        </MemoryRouter>
+        <Provider store={store}>
+          <MemoryRouter>
+            <Card type="characters" data={mockData} />
+          </MemoryRouter>
+        </Provider>
       )
 
       fireEvent.click(queryByText('character'))
@@ -50,7 +58,11 @@ describe('Card', () => {
 
   describe('Comic', () => {
     it('Render', () => {
-      const { queryByText } = render(<Card type="comics" data={mockData} />)
+      const { queryByText } = render(
+        <Provider store={store}>
+          <Card type="comics" data={mockData} />
+        </Provider>
+      )
 
       expect(queryByText('comic')).toBeTruthy()
     })
