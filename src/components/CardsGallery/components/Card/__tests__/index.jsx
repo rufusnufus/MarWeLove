@@ -5,6 +5,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router-dom'
+import '@testing-library/jest-dom/extend-expect'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import Card from '../index'
 import mockStore from '../../../../../__mocks__/store'
@@ -18,9 +19,15 @@ afterEach(cleanup)
 const mockData = {
   id: 1009148,
   thumbnail: {
-    path: '',
-    extension: ''
+    path: 'abc',
+    extension: 'def'
   },
+  name: 'character',
+  title: 'comic'
+}
+
+const mockDataWithoutThumbnail = {
+  id: 1009148,
   name: 'character',
   title: 'comic'
 }
@@ -34,16 +41,36 @@ jest.mock('react-router-dom', () => ({
   })
 }))
 
+jest.mock('../../../../Bookmark', () => () => 'Bookmark')
+
 describe('Card', () => {
   describe('Character', () => {
     it('Render', () => {
-      const { queryByText } = render(
+      const { queryByText, getByTestId } = render(
         <Provider store={store}>
           <Card type="characters" data={mockData} />
         </Provider>
       )
 
       expect(queryByText('character')).toBeTruthy()
+      expect(getByTestId('card__image')).toHaveStyle(
+        `background-image: url(${mockData.thumbnail.path}.${mockData.thumbnail.extension})`
+      )
+      expect(queryByText('character')).toMatchSnapshot()
+    })
+
+    it('Render without thumbnail', () => {
+      const { queryByText, getByTestId } = render(
+        <Provider store={store}>
+          <Card type="characters" data={mockDataWithoutThumbnail} />
+        </Provider>
+      )
+
+      expect(queryByText('character')).toBeTruthy()
+      expect(getByTestId('card__image')).toHaveStyle(
+        `background-image: url(${mockDataWithoutThumbnail.thumbnail?.path}.${mockDataWithoutThumbnail.thumbnail?.path})`
+      )
+      expect(queryByText('character')).toMatchSnapshot()
     })
 
     it('After click route path changes', () => {
@@ -62,13 +89,44 @@ describe('Card', () => {
 
   describe('Comic', () => {
     it('Render', () => {
-      const { queryByText } = render(
+      const { queryByText, getByTestId } = render(
         <Provider store={store}>
           <Card type="comics" data={mockData} />
         </Provider>
       )
 
       expect(queryByText('comic')).toBeTruthy()
+      expect(getByTestId('card__image')).toHaveStyle(
+        `background-image: url(${mockData.thumbnail.path}.${mockData.thumbnail.extension})`
+      )
+      expect(queryByText('comic')).toMatchSnapshot()
+    })
+
+    it('Render without thumbnail', () => {
+      const { queryByText, getByTestId } = render(
+        <Provider store={store}>
+          <Card type="comics" data={mockDataWithoutThumbnail} />
+        </Provider>
+      )
+
+      expect(queryByText('comic')).toBeTruthy()
+      expect(getByTestId('card__image')).toHaveStyle(
+        `background-image: url(${mockDataWithoutThumbnail.thumbnail?.path}.${mockDataWithoutThumbnail.thumbnail?.path})`
+      )
+      expect(queryByText('comic')).toMatchSnapshot()
+    })
+
+    it('After click route path changes', () => {
+      const { queryByText } = render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <Card type="comics" data={mockData} />
+          </MemoryRouter>
+        </Provider>
+      )
+
+      fireEvent.click(queryByText('comic'))
+      expect(mockHistoryReplace).toHaveBeenCalledWith('/comics/1009148')
     })
   })
 })

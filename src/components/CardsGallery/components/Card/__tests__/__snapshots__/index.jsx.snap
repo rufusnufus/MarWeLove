@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Character Render 1`] = `
+<div
+  class="card__caption"
+>
+  character
+</div>
+`;
+
+exports[`Card Character Render without thumbnail 1`] = `
+<div
+  class="card__caption"
+>
+  character
+</div>
+`;
+
+exports[`Card Comic Render 1`] = `
+<div
+  class="card__caption"
+>
+  comic
+</div>
+`;
+
+exports[`Card Comic Render without thumbnail 1`] = `
+<div
+  class="card__caption"
+>
+  comic
+</div>
+`;
