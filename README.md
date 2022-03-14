@@ -3,7 +3,7 @@
 </p>
 
 ![React badge](https://img.shields.io/badge/MADE%20WITH-REACT-blue?style=for-the-badge&logo=react)
-[![Maintenance](https://img.shields.io/maintenance/yes/2021?style=for-the-badge)]()
+[![Maintenance](https://img.shields.io/maintenance/yes/2022?style=for-the-badge)]()
 [![GitHub contributors](https://img.shields.io/github/contributors/rufusnufus/marwelove?style=for-the-badge)](https://github.com/rufusnufus/marwelove/graphs/contributors)
 [![GitHub license](https://img.shields.io/badge/license-mit-orange.svg?style=for-the-badge)](https://github.com/rufusnufus/marwelove/blob/master/LICENSE)
 
