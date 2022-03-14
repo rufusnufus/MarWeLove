@@ -21,6 +21,7 @@ function Bookmark({ bookmark, id }) {
       alt=""
       onClick={onClick}
       className="bookmark"
+      data-testid="bookmark"
     />
   )
 }

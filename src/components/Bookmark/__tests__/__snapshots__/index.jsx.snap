@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bookmark Render off 1`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark_blank.png"
+  />
+</div>
+`;
+
+exports[`Bookmark Render on 1`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark.png"
+  />
+</div>
+`;
