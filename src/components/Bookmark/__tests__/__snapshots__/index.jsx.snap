@@ -1,6 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Bookmark Render off 1`] = `
+exports[`Bookmark After click bookmark should be "off" 1`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark.png"
+  />
+</div>
+`;
+
+exports[`Bookmark After click bookmark should be "off" 2`] = `
 <div>
   <img
     alt=""
@@ -11,7 +22,40 @@ exports[`Bookmark Render off 1`] = `
 </div>
 `;
 
-exports[`Bookmark Render on 1`] = `
+exports[`Bookmark After click bookmark should be "on" 1`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark_blank.png"
+  />
+</div>
+`;
+
+exports[`Bookmark After click bookmark should be "on" 2`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark.png"
+  />
+</div>
+`;
+
+exports[`Bookmark Render "off" 1`] = `
+<div>
+  <img
+    alt=""
+    class="bookmark"
+    data-testid="bookmark"
+    src="/images/bookmark_blank.png"
+  />
+</div>
+`;
+
+exports[`Bookmark Render "on" 1`] = `
 <div>
   <img
     alt=""
