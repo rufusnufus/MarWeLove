@@ -42,8 +42,8 @@ jobs:
       - name: Install npm dependency
         run: npm install
 
-      - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
-          eslint: true
-          prettier: true
+      - name: Run prettier
+        run: npm run pretty:check
+
+      - name: Run eslint
+        run: npm run lint:check
