@@ -6,9 +6,7 @@ import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import CardsGallery from '../index'
-import store from '../../../store'
-
-afterEach(cleanup)
+import mockStore from '../../../__mocks__/store'
 
 const mockData = [
   {
@@ -32,6 +30,12 @@ const mockData = [
     title: 'Hulk (2008) #53'
   }
 ]
+
+let store
+beforeEach(() => {
+  store = mockStore()
+})
+afterEach(cleanup)
 
 describe('CardsGallery', () => {
   describe('Characters', () => {

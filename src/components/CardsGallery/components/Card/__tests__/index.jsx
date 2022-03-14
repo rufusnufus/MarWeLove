@@ -7,8 +7,12 @@ import { Provider } from 'react-redux'
 import { MemoryRouter } from 'react-router-dom'
 import { cleanup, fireEvent, render } from '@testing-library/react'
 import Card from '../index'
-import store from '../../../../../store'
+import mockStore from '../../../../../__mocks__/store'
 
+let store
+beforeEach(() => {
+  store = mockStore()
+})
 afterEach(cleanup)
 
 const mockData = {

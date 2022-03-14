@@ -6,8 +6,12 @@ import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import CharacterInfo from '../index'
-import store from '../../../store'
+import mockStore from '../../../__mocks__/store'
 
+let store
+beforeEach(() => {
+  store = mockStore()
+})
 afterEach(cleanup)
 
 const mockData = {
