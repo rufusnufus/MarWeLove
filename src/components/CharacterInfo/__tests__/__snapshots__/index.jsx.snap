@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterInfo Render with thumbnail 1`] = `
+<div>
+  <div
+    class="characterinfo"
+  >
+    <div
+      class="characterinfo__text"
+    >
+      <div
+        class="bookmark__container"
+      >
+        <div
+          class="characterinfo__name"
+        >
+          Abyss (Age of Apocalypse)
+        </div>
+        Bookmark
+      </div>
+      <div
+        class="characterinfo__description"
+      >
+        AIM is a terrorist organization bent on destroying the world.
+      </div>
+    </div>
+    <div
+      class="characterinfo__image"
+      style="background-image: url(.);"
+    />
+  </div>
+</div>
+`;
+
+exports[`CharacterInfo Render without thumbnail 1`] = `
+<div>
+  <div
+    class="characterinfo"
+  >
+    <div
+      class="characterinfo__text"
+    >
+      <div
+        class="bookmark__container"
+      >
+        <div
+          class="characterinfo__name"
+        >
+          Abyss (Age of Apocalypse)
+        </div>
+        Bookmark
+      </div>
+      <div
+        class="characterinfo__description"
+      >
+        AIM is a terrorist organization bent on destroying the world.
+      </div>
+    </div>
+    <div
+      class="characterinfo__image"
+      style="background-image: url(undefined.undefined);"
+    />
+  </div>
+</div>
+`;

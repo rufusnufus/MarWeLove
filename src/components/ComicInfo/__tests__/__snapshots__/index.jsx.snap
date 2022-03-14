@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterInfo Render with thumbnail 1`] = `
+<div>
+  <div
+    class="comicinfo"
+  >
+    <div
+      class="comicinfo__text"
+    >
+      <div
+        class="comicinfo__name"
+      >
+        Sentry, the (Trade Paperback)
+      </div>
+      <div
+        class="comicinfo__description"
+      >
+        A forgotten hero, he must unravel the conspiracy to erase his memory.
+      </div>
+    </div>
+    <div
+      class="comicinfo__image"
+      style="background-image: url(.);"
+    />
+  </div>
+</div>
+`;
+
+exports[`CharacterInfo Render without thumbnail 1`] = `
+<div>
+  <div
+    class="comicinfo"
+  >
+    <div
+      class="comicinfo__text"
+    >
+      <div
+        class="comicinfo__name"
+      >
+        Sentry, the (Trade Paperback)
+      </div>
+      <div
+        class="comicinfo__description"
+      >
+        A forgotten hero, he must unravel the conspiracy to erase his memory.
+      </div>
+    </div>
+    <div
+      class="comicinfo__image"
+      style="background-image: url(undefined.undefined);"
+    />
+  </div>
+</div>
+`;

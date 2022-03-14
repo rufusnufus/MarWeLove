@@ -48,4 +48,24 @@ describe('Header', () => {
 
     expect(queryByText('comics')).toBeTruthy()
   })
+
+  it('Render without name', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    )
+
+    expect(container).toMatchSnapshot()
+  })
+
+  it('Render with name', () => {
+    const { container } = render(
+      <BrowserRouter>
+        <Header name="user" />
+      </BrowserRouter>
+    )
+
+    expect(container).toMatchSnapshot()
+  })
 })

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Render 1`] = `
+<div>
+  <div
+    class="searchbar"
+  >
+    <img
+      alt=""
+      class="searchbar__logo"
+      src="images/search.png"
+    />
+    <input
+      class="searchbar__search"
+      placeholder="Search"
+      type="text"
+    />
+  </div>
+</div>
+`;

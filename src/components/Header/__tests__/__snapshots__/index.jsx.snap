@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Render with name 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <a
+      aria-current="page"
+      class="header__logo active"
+      data-testid="header__logo"
+      href="/"
+    >
+      Mar
+      <span>
+        we
+      </span>
+      Love
+    </a>
+    <div
+      class="header__navbar"
+    >
+      <a
+        class="header__button"
+        href="/characters"
+      >
+        characters
+      </a>
+      <a
+        class="header__button"
+        href="/comics"
+      >
+        comics
+      </a>
+      <a
+        class="header__button"
+        href="/bookmarks"
+      >
+        bookmarks
+      </a>
+    </div>
+    <span
+      class="header__name"
+    >
+      user
+    </span>
+  </header>
+</div>
+`;
+
+exports[`Header Render without name 1`] = `
+<div>
+  <header
+    class="header"
+  >
+    <a
+      aria-current="page"
+      class="header__logo active"
+      data-testid="header__logo"
+      href="/"
+    >
+      Mar
+      <span>
+        we
+      </span>
+      Love
+    </a>
+    <div
+      class="header__navbar"
+    >
+      <a
+        class="header__button"
+        href="/characters"
+      >
+        characters
+      </a>
+      <a
+        class="header__button"
+        href="/comics"
+      >
+        comics
+      </a>
+      <a
+        class="header__button"
+        href="/bookmarks"
+      >
+        bookmarks
+      </a>
+    </div>
+    <span
+      class="header__name"
+    />
+  </header>
+</div>
+`;

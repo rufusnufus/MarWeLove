@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NameForm Render 1`] = `
+<div>
+  <form
+    class="name-form"
+  >
+    <label
+      for="name"
+    >
+      What\`s your name, 
+      <span>
+        hero
+      </span>
+      ?
+    </label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      value=""
+    />
+    <input
+      id="password"
+      name="password"
+      type="password"
+      value=""
+    />
+    <button
+      type="button"
+    >
+      Register
+    </button>
+    <button
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
+`;
