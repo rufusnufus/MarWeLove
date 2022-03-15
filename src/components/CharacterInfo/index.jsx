@@ -9,7 +9,7 @@ function CharacterInfo({ data }) {
       <div className="characterinfo__text">
         <div className="bookmark__container">
           <div className="characterinfo__name">{data.name}</div>
-          <Bookmark id={data.id} bookmark={data.bookmark} />
+          <Bookmark id={data.id} bookmark={data.bookmark} type="characters" />
         </div>
         <div className="characterinfo__description">{data.description}</div>
       </div>

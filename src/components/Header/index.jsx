@@ -19,6 +19,9 @@ function Header({ name }) {
         <NavLink className="header__button" to="/bookmarks">
           bookmarks
         </NavLink>
+        <NavLink className="header__button" to="/bookmarks_comics">
+          comic bookmarks
+        </NavLink>
       </div>
       <span className="header__name">{name}</span>
     </header>
