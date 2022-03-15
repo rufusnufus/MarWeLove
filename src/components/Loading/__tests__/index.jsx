@@ -9,20 +9,15 @@ import Loading from '../index'
 afterEach(cleanup)
 
 describe('Loading', () => {
-it('Render off', () => {
-  const { container } = render(
-    <Loading loading={false} />
-  )
+  it('Render off', () => {
+    const { container } = render(<Loading loading={false} />)
 
-  expect(container).toMatchSnapshot()
-})
+    expect(container).toMatchSnapshot()
+  })
 
-it('Render on', () => {
-  const { container } = render(
-    <Loading loading />
-  )
+  it('Render on', () => {
+    const { container } = render(<Loading loading />)
 
-  expect(container).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
+  })
 })
-})
- 
