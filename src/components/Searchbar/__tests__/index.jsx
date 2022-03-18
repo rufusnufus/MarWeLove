@@ -3,18 +3,23 @@
  */
 
 import React from 'react'
-import { cleanup, render } from '@testing-library/react'
+import { cleanup, render, fireEvent } from '@testing-library/react'
 import Searchbar from '../index'
-
 
 afterEach(cleanup)
 
-describe('SearchBar', () => {
-    it('Render', () => {
-        const { container } = render(
-        <Searchbar onSubmit={jest.fn()}/>
-        )
+const onSubmit = jest.fn()
 
-        expect(container).toMatchSnapshot()
-    })
+describe('SearchBar', () => {
+  it('Render', () => {
+    const { container } = render(<Searchbar onSubmit={onSubmit} />)
+
+    expect(container).toMatchSnapshot()
+  })
+
+  it('Input symbol', () => {
+    const { getByPlaceholderText } = render(<Searchbar onSubmit={onSubmit} />)
+    fireEvent.keyUp(getByPlaceholderText('Search'), { key: 'Enter' })
+    expect(onSubmit).toBeCalled()
+  })
 })

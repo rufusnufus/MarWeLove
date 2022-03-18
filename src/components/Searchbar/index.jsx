@@ -4,8 +4,7 @@ import './index.css'
 
 function Searchbar({ onSubmit }) {
   const inputKeyUp = (e) => {
-    e.which = e.which || e.keyCode
-    if (e.which === 13) {
+    if (e.key === 'Enter') {
       onSubmit(e.target.value)
     }
   }
