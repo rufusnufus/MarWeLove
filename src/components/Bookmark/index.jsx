@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import apiService from '../../services/apiService'
 import './index.css'
 
-function Bookmark({ bookmark, id }) {
+function Bookmark({ bookmark, id, type }) {
   const [isBookmarked, setIsBookmarked] = useState(bookmark)
   const token = useSelector((state) => state.user.token)
 
@@ -11,7 +11,7 @@ function Bookmark({ bookmark, id }) {
     (event) => {
       event.stopPropagation()
       setIsBookmarked(!isBookmarked)
-      apiService.toggleBookmark(id, token)
+      apiService.toggleBookmark(id, token, type)
     },
     [isBookmarked]
   )

@@ -44,8 +44,11 @@ function App() {
             <Route path="/comics">
               <Comics />
             </Route>
-            <Route path="/bookmarks">
-              <Bookmarks />
+            <Route path="/bookmarks/characters">
+              <Bookmarks type="characters" />
+            </Route>
+            <Route path="/bookmarks/comics">
+              <Bookmarks type="comics" />
             </Route>
             <Route path="/" exact>
               <Characters />

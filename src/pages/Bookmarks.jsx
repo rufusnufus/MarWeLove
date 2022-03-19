@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import Searchbar from '../components/Searchbar'
 import CardsGallery from '../components/CardsGallery'
 import Loading from '../components/Loading'
 import Loader from '../components/Loader'
 import apiService from '../services/apiService'
 
-function Bookmarks() {
+function Bookmarks({ type = 'characters' }) {
   const [data, setData] = useState([])
   const [isSubscribed, setIsSubscribed] = useState(true)
   const [offset, setOffset] = useState(0)
-  const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)
   const [loaderVisible, setLoaderVisible] = useState(false)
   const token = useSelector((state) => state.user.token)
   const onlyBookmarked = true
 
   useEffect(() => {
+    setData([])
+  }, [type])
+
+  useEffect(() => {
     setIsSubscribed(true)
-    apiService
-      .getCharacters({ query, offset, onlyBookmarked }, token)
+    const resultingPromise =
+      type === 'characters'
+        ? apiService.getCharacters({ query: '', offset, onlyBookmarked }, token)
+        : apiService.getComics({ query: '', offset, onlyBookmarked }, token)
+
+    resultingPromise
       .then((results) => {
         if (isSubscribed) {
           setLoaderVisible(results.length === 20)
@@ -30,27 +36,12 @@ function Bookmarks() {
         if (isSubscribed) setLoading(false)
       })
     return () => setIsSubscribed(false)
-  }, [offset, token, onlyBookmarked])
-
-  const onSubmit = (q) => {
-    setQuery(q)
-    setLoading(true)
-    apiService
-      .getCharacters({ query: q, only_bookmarked: true }, token)
-      .then((results) => {
-        setLoaderVisible(results.length === 20)
-        setData(results)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
-  }
+  }, [offset, token, onlyBookmarked, type])
 
   return (
     <>
-      <Searchbar onSubmit={onSubmit} />
       <Loading loading={loading}>
-        <CardsGallery type="characters" data={data} />
+        <CardsGallery type={type} data={data} />
         {loaderVisible && <Loader onChange={() => setOffset((state) => state + 20)} />}
       </Loading>
     </>
