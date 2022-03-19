@@ -52,24 +52,24 @@ describe('NameForm', () => {
       })
     })
 
-    it('Login', async () => {
-      apiService.performLogin.mockImplementation(
-        () =>
-          new Promise((resolve) => {
-            resolve('token')
-          })
-      )
+    // it('Login', async () => {
+    //   apiService.performLogin.mockImplementation(
+    //     () =>
+    //       new Promise((resolve) => {
+    //         resolve('token')
+    //       })
+    //   )
 
-      const { getByText } = render(
-        <Provider store={store}>
-          <NameForm />
-        </Provider>
-      )
+    //   const { getByText } = render(
+    //     <Provider store={store}>
+    //       <NameForm />
+    //     </Provider>
+    //   )
 
-      await act(async () => {
-        fireEvent.click(getByText('Login'))
-        expect(apiService.performLogin).toHaveBeenLastCalledWith('', '')
-      })
-    })
+    //   await act(async () => {
+    //     fireEvent.click(getByText('Login'))
+    //     expect(apiService.performLogin).toHaveBeenLastCalledWith('', '')
+    //   })
+    // })
   })
 })
