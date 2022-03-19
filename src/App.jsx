@@ -9,6 +9,7 @@ import Character from './pages/Character'
 import Comics from './pages/Comics'
 import Comic from './pages/Comic'
 import Bookmarks from './pages/Bookmarks'
+import ComicBookmarks from './pages/ComicBookmarks'
 
 Modal.setAppElement('#root')
 
@@ -46,6 +47,9 @@ function App() {
             </Route>
             <Route path="/bookmarks">
               <Bookmarks />
+            </Route>
+            <Route path="/bookmarks_comics">
+              <ComicBookmarks />
             </Route>
             <Route path="/" exact>
               <Characters />

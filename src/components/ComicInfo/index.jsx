@@ -1,4 +1,5 @@
 import React from 'react'
+import Bookmark from '../Bookmark'
 
 import './index.css'
 
@@ -6,7 +7,10 @@ function ComicInfo({ data }) {
   return (
     <div className="comicinfo">
       <div className="comicinfo__text">
-        <div className="comicinfo__name">{data.title}</div>
+        <div className="bookmark__container">
+          <div className="comicinfo__name">{data.title}</div>
+          <Bookmark id={data.id} bookmark={data.bookmark} type="comics" />
+        </div>
         <div className="comicinfo__description">{data.description}</div>
       </div>
       <div

@@ -7,6 +7,7 @@ import 'jest-styled-components'
 import { cleanup, render } from '@testing-library/react'
 import ComicInfo from '../index'
 
+jest.mock('../../Bookmark', () => () => 'Bookmark')
 afterEach(cleanup)
 
 const mockData = {
@@ -25,14 +26,14 @@ const mockDataWithoutThumbnail = {
   description: 'A forgotten hero, he must unravel the conspiracy to erase his memory.'
 }
 
-describe('CharacterInfo', () => {
-  it('Character Name', () => {
+describe('ComicInfo', () => {
+  it('Comics Title', () => {
     const { queryByText } = render(<ComicInfo data={mockData} />)
 
     expect(queryByText('Sentry, the (Trade Paperback)')).toBeTruthy()
   })
 
-  it('Character Description', () => {
+  it('Comic Description', () => {
     const { queryByText } = render(<ComicInfo data={mockData} />)
 
     expect(queryByText('A forgotten hero, he must unravel the conspiracy to erase his memory.')).toBeTruthy()

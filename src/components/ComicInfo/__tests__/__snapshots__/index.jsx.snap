@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharacterInfo Render with thumbnail 1`] = `
+exports[`ComicInfo Render with thumbnail 1`] = `
 <div>
   <div
     class="comicinfo"
@@ -9,9 +9,14 @@ exports[`CharacterInfo Render with thumbnail 1`] = `
       class="comicinfo__text"
     >
       <div
-        class="comicinfo__name"
+        class="bookmark__container"
       >
-        Sentry, the (Trade Paperback)
+        <div
+          class="comicinfo__name"
+        >
+          Sentry, the (Trade Paperback)
+        </div>
+        Bookmark
       </div>
       <div
         class="comicinfo__description"
@@ -27,7 +32,7 @@ exports[`CharacterInfo Render with thumbnail 1`] = `
 </div>
 `;
 
-exports[`CharacterInfo Render without thumbnail 1`] = `
+exports[`ComicInfo Render without thumbnail 1`] = `
 <div>
   <div
     class="comicinfo"
@@ -36,9 +41,14 @@ exports[`CharacterInfo Render without thumbnail 1`] = `
       class="comicinfo__text"
     >
       <div
-        class="comicinfo__name"
+        class="bookmark__container"
       >
-        Sentry, the (Trade Paperback)
+        <div
+          class="comicinfo__name"
+        >
+          Sentry, the (Trade Paperback)
+        </div>
+        Bookmark
       </div>
       <div
         class="comicinfo__description"

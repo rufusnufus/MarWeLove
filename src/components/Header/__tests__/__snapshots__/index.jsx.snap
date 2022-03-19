@@ -38,6 +38,12 @@ exports[`Header Render with name 1`] = `
       >
         bookmarks
       </a>
+      <a
+        class="header__button"
+        href="/bookmarks_comics"
+      >
+        comic bookmarks
+      </a>
     </div>
     <span
       class="header__name"
@@ -85,6 +91,12 @@ exports[`Header Render without name 1`] = `
         href="/bookmarks"
       >
         bookmarks
+      </a>
+      <a
+        class="header__button"
+        href="/bookmarks_comics"
+      >
+        comic bookmarks
       </a>
     </div>
     <span

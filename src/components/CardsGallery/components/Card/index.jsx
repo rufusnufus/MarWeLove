@@ -12,7 +12,7 @@ function Card({ data, type }) {
 
   return (
     <div role="navigation" className="card" onClick={handleClick}>
-      <Bookmark id={data.id} bookmark={data.bookmark} />
+      <Bookmark id={data.id} bookmark={data.bookmark} type={type} />
       <div
         className="card__image"
         data-testid="card__image"
