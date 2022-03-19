@@ -14,21 +14,20 @@ const NameForm = () => {
     initialValues: {
       name: '',
       password: ''
+    },
+    onSubmit: (values) => {
+      const { name, password } = values
+      apiService
+        .performLogin(name, password)
+        .then((results) => {
+          dispatch(setName(values.name))
+          dispatch(setToken(results))
+        })
+        .catch(() => {
+          setStatus('ERROR')
+        })
     }
   })
-
-  function handleLogin(values) {
-    const { name, password } = values
-    apiService
-      .performLogin(name, password)
-      .then((results) => {
-        dispatch(setName(values.name))
-        dispatch(setToken(results))
-      })
-      .catch(() => {
-        setStatus('ERROR')
-      })
-  }
 
   function handleRegister(values) {
     const { name, password } = values
@@ -43,7 +42,7 @@ const NameForm = () => {
   }
 
   return (
-    <form className="name-form">
+    <form className="name-form" onSubmit={formik.handleSubmit}>
       <label htmlFor="name">
         What`s your name, <span>hero</span>?
       </label>
@@ -60,9 +59,7 @@ const NameForm = () => {
       <button onClick={() => handleRegister(formik.values)} type="button">
         Register
       </button>
-      <button onClick={() => handleLogin(formik.values)} type="submit">
-        Login
-      </button>
+      <button type="submit">Login</button>
       {status === 'OK' && <p> Registration completed </p>}
       {status === 'ERROR' && <p> Request failed </p>}
     </form>
